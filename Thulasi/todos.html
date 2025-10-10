@@ -1,0 +1,16 @@
+TEMPLATE FOUND
+{% extends "base.html" %}
+{% block content %}
+<h1>Todo List</h1>
+<p>Todos raw: {{ todos }}</p>
+<p>Number of todos: {{ todos|length }}</p>
+<ul>
+    {% for todo in todos %}
+    <li>
+        {{ todo.title }}: {% if todo.completed %}Completed{% else %}Not Completed{% endif %}
+    </li>
+    {% empty %}
+    <li>No todos found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
